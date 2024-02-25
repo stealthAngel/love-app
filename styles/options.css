@@ -1,0 +1,33 @@
+.color-change-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+#color-change-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.color-options {
+  background-color: #444;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.color-option {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 5px;
+  display: block;
+  margin: 5px 0;
+  cursor: pointer;
+}
+

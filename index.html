@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mo's Love</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/options.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="js/settings.js"></script>
+  <script defer src="js/functions.js"></script>
+  <script defer src="js/scene.js"></script>
+  <script defer src="js/popup.js"></script>
+  <script defer src="js/show-image.js"></script>
+  <script defer src="js/options.js"></script>
+</head>
+
+<body>
+  <div id="scene-container"></div>
+
+  <div class="buttons-container">
+    <button id="love-button">Click Here to See Mo's Love</button>
+    <div class="image-buttons-container"> <!-- Changed class name for clarity -->
+      <button id="show-image">Show Image</button>
+      <button id="hide-image">Hide Image</button>
+    </div>
+  </div>
+
+  <div id="image-container" style="display:none;">
+    <img id="love-image" src="images/image1.jpeg" alt="Mo &lt;3 Rosa" style="max-width:100%;height:auto;">
+  </div>
+
+  <div class="color-change-container">
+    <button id="color-change-btn">...</button>
+    <div id="color-options" class="color-options" style="display:none;">
+      <button class="color-option" data-color="random">Random Color Hearts</button>
+      <button class="color-option" data-color="pink">Pink Hearts</button>
+      <button class="color-option" data-color="blue">Blue Hearts</button>
+      <button class="color-option" data-color="blackwhite">Black & White Hearts</button>
+      <button class="bg-color-option" data-bgcolor="white">White Background</button>
+      <button class="bg-color-option" data-bgcolor="black">Black Background</button>
+
+      <!-- Slider for falling speed -->
+      <div class="slider-container">
+        <label for="falling-speed-slider">Falling Speed:</label>
+        <input type="range" id="falling-speed-slider" min="0.1" max="2" value="0.1" step="0.1">
+      </div>
+
+      <!-- Slider for heart size -->
+      <div class="slider-container">
+        <label for="heart-size-slider">Heart Size:</label>
+        <input type="range" id="heart-size-slider" min="0.1" max="1" value="0.4" step="0.1">
+      </div>
+    </div>
+  </div>
+
+
+  <div id="message-container">
+    <p></p>
+  </div>
+</body>
+
+</html>
