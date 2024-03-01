@@ -10,24 +10,25 @@
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px 20px; /* Increased padding for a larger button */
   cursor: pointer;
+  font-size: 16px; /* Increased font size for better visibility */
 }
 
 .color-options {
   background-color: #444;
-  padding: 5px;
+  padding: 10px; /* Increased padding for more space inside */
   margin-top: 5px;
   border-radius: 5px;
 }
 
-.color-option {
-  background-color: #555;
-  color: white;
-  border: none;
-  padding: 5px;
-  display: block;
-  margin: 5px 0;
-  cursor: pointer;
+.color-option, .bg-color-option {
+  background-color: #555; /* Dark gray background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 10px; /* Increased padding for a larger touch area */
+  display: block; /* Block display to fill the container width */
+  margin: 10px 0; /* Increased margin for more space between options */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Increased font size for better readability */
 }
-

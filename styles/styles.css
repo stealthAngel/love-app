@@ -80,4 +80,37 @@ body, html {
   font-size: 24px; /* Adjust as needed */
 }
 
+input[type="range"] {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 8px; /* Increased height for the track */
+  background: #ddd; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Partial transparency */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
 
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 25px; /* Increased width for the thumb */
+  height: 25px; /* Increased height for the thumb */
+  background: #333; /* Dark thumb */
+  cursor: pointer; /* Cursor on hover */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 25px; /* Increased width for the thumb */
+  height: 25px; /* Increased height for the thumb */
+  background: #333; /* Dark thumb */
+  cursor: pointer; /* Cursor on hover */
+}
+
+/* White bold text */
+.text-white-bold {
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  font-size: 1.2rem;
+}

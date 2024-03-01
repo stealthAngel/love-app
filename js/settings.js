@@ -2,6 +2,7 @@ let fallingSpeed = 0.1;
 let currentPopup = null; // To keep track of the current popup
 let currentIndex = 0; // Initialize current index outside of the event listener to persist its value across clicks
 let loverText = 'Mo &hearts; Rosa';
+let spawnSpeed = 50;
 
 function setLoverText() {
   document.querySelector('#message-container p').innerHTML = loverText;

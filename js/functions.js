@@ -62,6 +62,47 @@ function createRandomPinkPurpleColor() {
   return color;
 }
 
+function createRandomBlueColor() {
+  // For blue hues, blue should be the highest value.
+  // Red and green should be kept lower to ensure the color is distinctly blue.
+
+  // Generate a low red value (0 to 130 to keep it subdued)
+  const red = Math.floor(Math.random() * 130);
+
+  // Generate a low green value (0 to 130 to keep it subdued)
+  const green = Math.floor(Math.random() * 130);
+
+  // Generate a high blue value (150 to 255 to ensure it's leaning towards blue)
+  const blue = Math.floor(Math.random() * (255 - 150 + 1)) + 150;
+
+  // Convert these RGB values to a hex string
+  const color = `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`;
+
+  return color;
+}
+
+function createRandomRedColor() {
+  // Red hues generally have higher values of red with lower green and blue values.
+  // We'll randomize these within a range that's likely to produce these hues.
+
+  // Generate a high red value (200 to 255 to ensure it's leaning towards red)
+  const red = Math.floor(Math.random() * 56) + 200;
+
+  // Generate a low green value (0 to 100 to keep it subdued)
+  const green = Math.floor(Math.random() * 101);
+
+  // Generate a low blue value (0 to 100 to keep it subdued)
+  const blue = Math.floor(Math.random() * 101);
+
+  // Convert these RGB values to a hex string
+  const color = `#${red.toString(16).padStart(2, '0')}${green.toString(16).padStart(2, '0')}${blue.toString(16).padStart(2, '0')}`;
+
+  return color;
+}
+
+
+
+
 // Function to generate a random pink/purple color
 function createRandomColors() {
   const pink = Math.floor(Math.random() * 256);
@@ -84,7 +125,8 @@ function getRandomColor() {
 const colorMappings = {
   random: createRandomColors,
   pink: createRandomPinkPurpleColor,
-  blue: () => '#0000FF',
+  blue: createRandomBlueColor,
+  red: createRandomRedColor,
   blackwhite: () => Math.random() < 0.5 ? '#000000' : '#FFFFFF',
 };
 

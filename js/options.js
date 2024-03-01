@@ -6,9 +6,35 @@ document.getElementById('color-change-btn').addEventListener('click', function()
   colorOptions.style.display = colorOptions.style.display === 'none' ? 'block' : 'none';
 });
 
+// Adding event listeners for color options
+document.querySelectorAll('.color-option').forEach(option => {
+  option.addEventListener('click', handleColorOptionClick);
+});
+
+// Adding event listeners for background color options
+document.querySelectorAll('.bg-color-option').forEach(option => {
+  option.addEventListener('click', handleBgColorOptionClick);
+});
 
 
-// Function to handle color option click
+// Event listener for falling speed slider
+document.getElementById('falling-speed-slider').addEventListener('input', function() {
+  fallingSpeed = parseFloat(this.value);
+});
+
+// Event listener for heart size slider
+document.getElementById('heart-size-slider').addEventListener('input', function() {
+  heartScale = parseFloat(this.value);
+  hearts.forEach(heart => {
+    heart.scale.set(heartScale, heartScale, heartScale); // Update the scale of each heart
+  });
+});
+
+document.getElementById('spawn-speed-slider').addEventListener('input', function() {
+  spawnSpeed = parseFloat(this.value);
+});
+
+// option functions 
 function handleColorOptionClick() {
   const colorChoice = this.getAttribute('data-color');
   // Update the current color function based on the selection
@@ -35,30 +61,3 @@ function handleBgColorOptionClick() {
   // Hide the menu after selection
   document.getElementById('color-options').style.display = 'none';
 }
-
-
-
-
-// Adding event listeners for color options
-document.querySelectorAll('.color-option').forEach(option => {
-  option.addEventListener('click', handleColorOptionClick);
-});
-
-// Adding event listeners for background color options
-document.querySelectorAll('.bg-color-option').forEach(option => {
-  option.addEventListener('click', handleBgColorOptionClick);
-});
-
-
-// Event listener for falling speed slider
-document.getElementById('falling-speed-slider').addEventListener('input', function() {
-  fallingSpeed = parseFloat(this.value);
-});
-
-// Event listener for heart size slider
-document.getElementById('heart-size-slider').addEventListener('input', function() {
-  heartScale = parseFloat(this.value);
-  hearts.forEach(heart => {
-    heart.scale.set(heartScale, heartScale, heartScale); // Update the scale of each heart
-  });
-});

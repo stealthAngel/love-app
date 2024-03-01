@@ -46,7 +46,7 @@ function createHeart() {
     addHeart(); // Add a new heart
 
     // Call spawnHearts again after a random delay to keep adding hearts
-    setTimeout(spawnHearts, Math.random() * 1000); // Adjust the maximum value to control the spawn rate
+    setTimeout(spawnHearts, Math.random() * spawnSpeed); // Adjust the maximum value to control the spawn rate
   }
 
 
