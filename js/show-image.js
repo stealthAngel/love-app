@@ -1,3 +1,9 @@
+let images = [];
+
+for (let i = 1; i <= 15; i++) {
+    images.push(`images/image${i}.jpeg`);
+}
+
 document.getElementById('show-image').addEventListener('click', function() {
     const imageContainer = document.getElementById('image-container');
     const loveImage = document.getElementById('love-image');

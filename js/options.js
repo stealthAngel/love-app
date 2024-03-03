@@ -34,6 +34,7 @@ document.getElementById('spawn-speed-slider').addEventListener('input', function
   spawnSpeed = parseFloat(this.value);
 });
 
+
 // option functions 
 function handleColorOptionClick() {
   const colorChoice = this.getAttribute('data-color');
@@ -43,21 +44,12 @@ function handleColorOptionClick() {
   hearts.forEach(heart => {
     heart.material.color.set(currentHeartColorFunc());
   });
-  document.getElementById('color-options').style.display = 'none';
 }
 
 // Function to handle background color option click
 function handleBgColorOptionClick() {
-  const bgColor = this.getAttribute('data-bgcolor');
-  const sceneContainer = document.getElementById('scene-container');
-  const messageContainer = document.getElementById('message-container');
-
-  // Apply the selected background color to the scene container
-  sceneContainer.style.backgroundColor = bgColor;
-  // Determine appropriate text color based on contrast ratio
-  const textColor = bgColor === 'white' ? 'black' : 'white';
-  messageContainer.style.color = textColor;
-
-  // Hide the menu after selection
-  document.getElementById('color-options').style.display = 'none';
+  const bgColor = this.getAttribute('data-bgcolor'); // Get the selected background color from the clicked element
+  setBackgroundColor(bgColor); // Apply the selected background color
+  const textColor = getBackgroundReversedColor(); // Determine the text color based on the background color
+  setMessageColor(textColor); // Apply the text color
 }

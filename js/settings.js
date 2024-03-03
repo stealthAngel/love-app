@@ -1,73 +1,71 @@
-let fallingSpeed = 0.1;
-let currentPopup = null; // To keep track of the current popup
-let currentIndex = 0; // Initialize current index outside of the event listener to persist its value across clicks
-let loverText = 'Mo &hearts; Rosa';
-let spawnSpeed = 50;
+function createPopup(messageText, textColor, borderColor, backgroundColor, transition) {
+  if (currentPopup) {
+      // If there's an existing popup, remove it before creating a new one
+      document.body.removeChild(currentPopup);
+      currentPopup = null;
+  }
 
-function setLoverText() {
-  document.querySelector('#message-container p').innerHTML = loverText;
+  const popup = document.createElement('div');
+  popup.innerHTML = `<p>${messageText}</p>`;
+  popup.style.border = `2px solid ${borderColor}`; // Random border color
+  popup.style.backgroundColor = backgroundColor;
+  popup.style.color = textColor;
+  popup.style.transition = transition; // Animation for scaling up
+  popup.style.position = 'absolute';
+  popup.style.top = '50%';
+  popup.style.left = '50%';
+  popup.style.transform = 'translate(-50%, -50%) scale(0)'; // Start scaled down
+  popup.style.padding = '20px';
+  popup.style.borderRadius = '10px';
+  popup.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+  popup.style.fontFamily = '"Arial", sans-serif';
+  popup.style.fontSize = '24px';
+  popup.style.textAlign = 'center';
+  document.body.appendChild(popup);
+  currentPopup = popup; // Keep track of the current popup
+
+  setTimeout(() => {
+      popup.style.transform = 'translate(-50%, -50%) scale(1)'; // Scale up animation
+  }, 10); // Start animation shortly after adding to the document
+
+  // Close popup after 5 seconds
+  setTimeout(() => {
+      if (currentPopup === popup) {
+          document.body.removeChild(popup);
+          currentPopup = null;
+      }
+  }, 5000);
 }
 
-// Call the function to initially set the loverText content
-setLoverText();
+document.getElementById('love-button').addEventListener('click', function() {
+  document.getElementById('hide-image').click();
+  // Select a random message
+  const messageIndex = Math.floor(Math.random() * messages.length);
+  const backgroundColor = getRandomColor();
+  const invertedColor = getInvertedColor(backgroundColor);
+  const transition = getTransition();
+  createPopup(messages[messageIndex], invertedColor, invertedColor, backgroundColor, transition);
+});
 
-const images = [
-    'images/image1.jpeg',
-    'images/image2.jpeg',
-    'images/image3.jpeg',
-    'images/image4.jpeg'
-];
+document.addEventListener('click', function(event) {
+  const colorOptions = document.getElementById('color-options');
+  const colorChangeBtn = document.getElementById('color-change-btn');
+  
+  // Check if the click occurred outside the color options menu and the color change button
+  if (!colorOptions.contains(event.target) && event.target !== colorChangeBtn) {
+      // Collapse the color options menu
+      colorOptions.style.display = 'none';
+  }
+});
 
-const messages = [
-  "Te amo, mi amor ❤️",
-  "Eres mi todo 💜",
-  "Por siempre y para siempre 💖",
-  "Juntos, somos imparables 🚀",
-  "Iluminas mi mundo 🌟",
-  "En tus ojos, encuentro mi hogar 🏡",
-  "Contigo, cada momento es mágico ✨",
-  "El amor es infinito... 🌌",
-  "Eres el sueño hecho realidad 💭",
-  "Eternamente tuyo/a, en amor y maravilla 🌹",
-  "Cada día te amo más 🌞",
-  "Mi corazón es tuyo 💘",
-  "Eres la razón de mi sonrisa 😊",
-  "A tu lado, todo es perfecto 🌈",
-  "Nuestro amor es una aventura 🗺️",
-  "Contigo, el tiempo vuela ⏳",
-  "Eres mi refugio seguro 🏰",
-  "Mi amor por ti es incondicional 💖",
-  "Juntos hasta el fin del mundo 🌍",
-  "Amarte es mi destino ⭐",
-  "Eres mi felicidad 🍀",
-  "A tu lado, soy la mejor versión de mí 🌹",
-  "Nuestro amor es como un cuento de hadas 🏰",
-  "Gracias por existir en mi vida 💫",
-  "Contigo, cada día es una bendición 🙏",
-  "Eres mi alma gemela 👫",
-  "Nuestros corazones laten al unísono 💕",
-  "Enamorarse de ti fue lo mejor que me pasó 🍃",
-  "Tu amor me hace invencible 🛡️",
-  "Cada momento contigo es un regalo 🎁",
-  "Tu amor es mi luz en la oscuridad 🕯️",
-  "Eres el amor de mi vida 💞",
-  "Contigo, cada sueño se hace realidad 🌠",
-  "Mi amor por ti crece cada día más 🌺",
-  "Eres mi todo en este mundo 🌎",
-  "Amarte es fácil porque eres maravilloso/a 💐",
-  "Contigo, la vida es bella 🦋",
-  "Eres mi razón para ser mejor 🌟",
-  "Nuestro amor es eterno como el mar 🌊",
-  "Juntos, creamos recuerdos preciosos 📸",
-  "Tu amor es mi tesoro más preciado 💍",
-  "Cada palabra tuya es música para mis oídos 🎶",
-  "Eres lo mejor que me ha pasado ❤️",
-  "Amarte hace que cada día valga la pena 🌅",
-  "Nuestro amor es un viaje maravilloso 🚀",
-  "A tu lado, siento que puedo volar 🕊️",
-  "Eres mi ancla en este mar de vida ⚓",
-  "Nuestro amor trasciende el tiempo ⏱️",
-  "Eres mi sueño hecho realidad, cada día 💤",
-  "Contigo, mi amor es infinito 🌀",
-];
+document.getElementById('toggle-buttons-btn').addEventListener('click', function() {
+  const buttonsContainer = document.querySelector('.buttons-container');
+  if (buttonsContainer.style.display === 'none') {
+      buttonsContainer.style.display = 'flex'; // Show the buttons container
+  } else {
+      buttonsContainer.style.display = 'none'; // Hide the buttons container
+  }
+});
+
+
 

@@ -8,16 +8,20 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/options.css">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script defer src="js/settings.js"></script>
   <script defer src="js/functions.js"></script>
+  <script defer src="js/variables.js"></script>
   <script defer src="js/scene.js"></script>
-  <script defer src="js/popup.js"></script>
+  <script defer src="js/settings.js"></script>
   <script defer src="js/show-image.js"></script>
   <script defer src="js/options.js"></script>
 </head>
 
 <body>
   <div id="scene-container"></div>
+
+  <div id="message-container">
+    <p>Mo &hearts; Rosa</p>
+  </div>
 
   <div class="buttons-container">
     <button id="love-button">Click Here to See Mo's Love</button>
@@ -33,14 +37,15 @@
 
   <div class="color-change-container">
     <button id="color-change-btn">...</button>
-    <div id="color-options" class="color-options" style="display:none;">
+    <div id="color-options" class="options" style="display:none;">
       <button class="color-option" data-color="random">Random Color Hearts</button>
       <button class="color-option" data-color="pink">Pink Hearts</button>
       <button class="color-option" data-color="blue">Blue Hearts</button>
       <button class="color-option" data-color="red">Red Hearts</button>
-      <button class="color-option" data-color="blackwhite">Black & White Hearts</button>
+      <button class="color-option" data-color="blackwhite">Black or White Hearts</button>
       <button class="bg-color-option" data-bgcolor="white">White Background</button>
       <button class="bg-color-option" data-bgcolor="black">Black Background</button>
+      <button class="toggle-button-option" id="toggle-buttons-btn">Toggle Buttons</button>
 
       <!-- Slider for falling speed -->
       <div class="slider-container">
@@ -59,11 +64,6 @@
         <input type="range" id="spawn-speed-slider" min="1" max="50" value="50" step="1" style="direction: rtl;">
       </div>
     </div>
-  </div>
-
-
-  <div id="message-container">
-    <p></p>
   </div>
 </body>
 
